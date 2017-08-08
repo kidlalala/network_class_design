@@ -1,0 +1,27 @@
+#ifndef BIN_HEX_TRANSFORM_H
+#define BIN_HEX_TRANSFORM_H
+
+#include<QString>
+
+class bin_hex_transform
+{
+private:
+    QString Source_mac;
+    QString Target_mac;
+    QString Length;
+    QString Data;
+    QString FCS;
+public:
+    bin_hex_transform();
+    bin_hex_transform(QString source_mac, QString target_mac, QString length,
+                      QString data);
+    //transform mac to bin
+    QString mac2bin();
+    //transform length to bin
+    QString len2bin();
+    //to guranteed data is 4 bits
+    QString filling_length();
+    QString bin2hex();
+};
+
+#endif // BIN_HEX_TRANSFORM_H
