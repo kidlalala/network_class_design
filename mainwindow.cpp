@@ -27,11 +27,13 @@ void MainWindow::on_pushButton_OK_clicked()
     bool match_t = crc->CHECKMAC(ui->lineEdit_TMAC->text());
     bool match_d = crc->CHECKDATA(ui->textEdit_DATA->toPlainText());
 
-    QMessageBox::critical(NULL,"error","format error");
     if(match_s && match_t && match_d)
         ui->lineEdit_FCS->setText(crc->GETFCS());
     else
+    {
+        QMessageBox::critical(NULL,"error","format error");
         ui->lineEdit_FCS->setText("format error");
+    }
 }
 
 void MainWindow::on_pushButton_RETRY_clicked()
