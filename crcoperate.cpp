@@ -1,4 +1,5 @@
 #include "crcoperate.h"
+#include<QApplication>
 #include<iostream>
 
 CRCoperate::CRCoperate()
@@ -65,6 +66,24 @@ void CRCoperate::MAC2BIN()
     TARGETMAC = FIXMAC(TARGETMAC);
     CRCString += HEX2BIN(SOURCEMAC);
     CRCString += HEX2BIN(TARGETMAC);
+}
+
+bool CRCoperate::CHECKMAC(QString MAC)
+{
+    QString pattern("([a-f0-9]{2}:){5}[a-f0-9]{2}");
+    QRegExp regular(pattern);
+
+    bool match = regular.exactMatch(MAC);
+    return match;
+}
+
+bool CRCoperate::CHECKDATA(QString DATA)
+{
+    QString pattern("[a-f0-9]{1,}");
+    QRegExp regular(pattern);
+
+    bool match = regular.exactMatch(DATA);
+    return match;
 }
 
 void CRCoperate::LEN2BIN()

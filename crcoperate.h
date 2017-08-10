@@ -26,6 +26,9 @@ public:
     QString HEX2BIN(QString HEX);
     QString FIXMAC(QString MAC);
 
+    bool CHECKMAC(QString MAC);
+    bool CHECKDATA(QString DATA);
+
     void MAC2BIN();
     void LEN2BIN();
     void FILLDATA();

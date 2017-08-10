@@ -3,6 +3,7 @@
 #include "crcoperate.h"
 #include<string>
 #include<QString>
+#include<QMessageBox>
 
 using std::string;
 
@@ -22,7 +23,15 @@ void MainWindow::on_pushButton_OK_clicked()
 {
     CRCoperate *crc = new CRCoperate(ui->lineEdit_SMAC->text(), ui->lineEdit_TMAC->text(),
                       ui->textEdit_DATA->toPlainText());
-    ui->lineEdit_FCS->setText(crc->GETFCS());
+    bool match_s = crc->CHECKMAC(ui->lineEdit_SMAC->text());
+    bool match_t = crc->CHECKMAC(ui->lineEdit_TMAC->text());
+    bool match_d = crc->CHECKDATA(ui->textEdit_DATA->toPlainText());
+
+    QMessageBox::critical(NULL,"error","format error");
+    if(match_s && match_t && match_d)
+        ui->lineEdit_FCS->setText(crc->GETFCS());
+    else
+        ui->lineEdit_FCS->setText("format error");
 }
 
 void MainWindow::on_pushButton_RETRY_clicked()
