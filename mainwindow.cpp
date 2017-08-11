@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("CRC:Cyclic Redundancy Check");
 }
 
 MainWindow::~MainWindow()
