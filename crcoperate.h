@@ -1,7 +1,7 @@
 #ifndef CRCOPERATE_H
 #define CRCOPERATE_H
 
-#include<QString>
+#include <QString>
 
 class CRCoperate
 {

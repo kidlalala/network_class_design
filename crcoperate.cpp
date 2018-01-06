@@ -1,6 +1,6 @@
 #include "crcoperate.h"
-#include<QApplication>
-#include<iostream>
+#include <QApplication>
+#include <iostream>
 
 CRCoperate::CRCoperate()
 {
@@ -95,10 +95,10 @@ void CRCoperate::FILLDATA()
 {
     DATA = HEX2BIN(DATA);
     int D_len = DATA.length();
-    if(D_len < 46)
+    if(D_len < 46*8)
     {
-        for(int i = 0; i < 46-D_len; i++)
-            DATA.insert(0,"0");
+        for(int i = 0; i < 46*8-D_len; i++)
+            DATA.append("0");
     }
 }
 
@@ -106,7 +106,8 @@ QString CRCoperate::GETFCS()
 {
     MAC2BIN();
     LEN2BIN();
-    CRCString += HEX2BIN(DATA);
+    FILLDATA();
+    CRCString += DATA;
 
     int len = POLYNOMIAL.length();
 

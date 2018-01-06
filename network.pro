@@ -25,9 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    crcoperate.cpp
+    crcoperate.cpp \
+    crc_32.cpp
 
 HEADERS  += mainwindow.h \
-    crcoperate.h
+    crcoperate.h \
+    crc_32.h
 
 FORMS    += mainwindow.ui
